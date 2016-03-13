@@ -1,12 +1,11 @@
 var express = require('express');
 var path = require('path');
 var FlightAware = require('flightaware.js');
+var config = require('./config');
 
 // Get access to the FlightAware 2.0 client API ...
 // See http://flightaware.com/commercial/flightxml for username/apiKey ...
-var username = 'your-flightaware-username';
-var apiKey = 'your-flightaware-apiKey';
-var client = new FlightAware(username, apiKey);
+var client = new FlightAware(config.username, config.apiKey);
 
 var app = express();
 app.get('/', function(req, res) {
