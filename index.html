@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <title>AngularJS/flightaware.js example</title>
+  </head>
+  <body>
+    <div ng-controller="FlightAwareController"> 
+      <label>Airport</label>
+      <input type="text" ng-model="destination" placeholder="e.g. KBOI"/>
+      <div>{{arrivals}}</div>
+    </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  </body>
+</html>
