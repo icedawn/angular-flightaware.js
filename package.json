@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/icedawn/angular-flightaware.js/issues"
   },
-  "homepage": "https://github.com/icedawn/angular-flightaware.js#readme"
+  "homepage": "https://github.com/icedawn/angular-flightaware.js#readme",
+  "dependencies": {
+    "flightaware.js": "^1.0.1"
+  }
 }
