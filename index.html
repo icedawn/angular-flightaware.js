@@ -9,6 +9,38 @@
       <input type="text" ng-model="destination" placeholder="e.g. KBOI"/>
       <div>{{arrivals}}</div>
     </div>
+
+    <script type="text/javascript">
+      FlightAwareController = function($scope, $http) {
+
+        // Setup page defaults ...
+        $scope.destination = 'SFO';
+        $scope.arrivals = {};
+
+        // Create a function to call FlightAware 2.0 API "Arrived" ...
+        $scope.Arrived = function() {
+          $http.get('/api/Arrived/' + $scope.destination)
+          .success(function (data) {
+            $scope.arrivals = data;
+          })
+          .error(function (error) {
+            $scope.arrivals = 'Error retrieving route details: ' + error;
+          });
+        };
+
+        // Call the Arrived() API and post the results to $scope.arrivals ...
+        $scope.Arrived();
+
+        // When the user updates the destination, reload the arrival information ...
+        $scope.$watch('destination', function(newValue, oldValue) {
+            if($scope.destination.length >= 3) {
+                $scope.Arrived();
+            }
+        });
+
+      };
+    </script>
+
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
   </body>
 </html>
