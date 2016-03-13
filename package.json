@@ -1,0 +1,24 @@
+{
+  "name": "angular-flightaware.js",
+  "version": "1.0.0",
+  "description": "AngularJS/flightaware.js example",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icedawn/angular-flightaware.js.git"
+  },
+  "keywords": [
+    "angular",
+    "angularjs",
+    "flightaware",
+    "flightaware.js"
+  ],
+  "author": "Ed Crump https://github.com/icedawn",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/icedawn/angular-flightaware.js/issues"
+  },
+  "homepage": "https://github.com/icedawn/angular-flightaware.js#readme"
+}
