@@ -38,7 +38,7 @@ You should see something like this ...
 ## Review the example code
 
 There are three main files that make up this example:
-* `server.js` - The main application server written for node.js, using expressjs.
+* `server.js` - The main application server written for node.js, using Express.
 * `index.html` - The main application view written using AngularJS and Bootstrap.
 * `config.js` - Your FlightAware 2.0 API credentials you created as described above.
 
@@ -74,7 +74,7 @@ app.listen(port, function() {
 });
 ```
 
-The first two lines include the expressJS framework and the node.js path handling module respectively.
+The first two lines include the Express framework and the node.js path handling module respectively.
 ```javascript
 var express = require('express');
 var path = require('path');
@@ -91,7 +91,7 @@ var config = require('./config');
 var client = new FlightAware(config.username, config.apiKey);
 ```
 
-The next four lines create the expressJS application and map http://localhost:8000 to your main view, `index.html`.  This is just standard expressJS boilerplate.
+The next four lines create the Express application and map http://localhost:8000 to your main view, `index.html`.  This is just standard Express boilerplate.
 
 ```javascript
 var app = express();
@@ -113,7 +113,7 @@ app.get('/api/Arrived/:airport', function(req, res) {
 });
 ```
 
-This code uses expressJS to map `/api/Arrived/:airport` to the embedded function that calls `client.Arrived()` shown above.  Note that `:airport` is a variable parsed by expressjS routing, and it will appear in the code as `req.params.airport`.  For example, if the URI is /api/Arrived/SFO, then `:airport` matches "SFO", and subsequently `req.params.airport` will be equal to "SFO".  You can access this backend API, http://localhost:8000/api/Arrived/SFO.  
+This code uses Express to map `/api/Arrived/:airport` to the embedded function that calls `client.Arrived()` shown above.  Note that `:airport` is a variable parsed by Express routing, and it will appear in the code as `req.params.airport`.  For example, if the URI is /api/Arrived/SFO, then `:airport` matches "SFO", and subsequently `req.params.airport` will be equal to "SFO".  You can access this backend API, http://localhost:8000/api/Arrived/SFO.  
 
 *Note you can access this backend API without compromising your FlightAware credentials.*
 
