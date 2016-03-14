@@ -13,7 +13,7 @@
         <table class="table table-bordered table-striped table-hover">
           <thead>
             <tr>
-              <th>Arrival</th> <th>Flight</th> <th>Origin</th> <th>Destination</th> <th>Departure</th>
+              <th>Arrival</th> <th>Flight</th> <th>Origin</th> <th>Destination</th> <th>Departure</th> <th>Duration</th>
             </tr>
           </thead>
           <tbody>
@@ -35,6 +35,9 @@
               </td>
               <td valign='top'>
                 {{arrival.actualdeparturetime*1000 | date:'yyyy-MM-dd HH:mm:ss Z'}}
+              </td>
+              <td valign='top'>
+                {{ Duration(arrival) }}
               </td>
             </tr>
           </tbody>
@@ -69,6 +72,14 @@
                 $scope.Arrived();
             }
         });
+
+        // Compute the duration of a flight ...
+        $scope.Duration = function(arrival) {
+          var duration = arrival.actualarrivaltime - arrival.actualdeparturetime;
+          var hours = Math.floor(duration / 3600);
+          var seconds = Math.floor((duration % 3600)/60);
+          return hours + ":" + ((seconds < 10) ? '0' :'') + seconds;
+        }
 
       };
     </script>
