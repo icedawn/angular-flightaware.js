@@ -7,7 +7,35 @@
     <div ng-controller="FlightAwareController"> 
       <label>Airport</label>
       <input type="text" ng-model="destination" placeholder="e.g. KBOI"/>
-      <div>{{arrivals}}</div>
+      <table class="table table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Arrival</th> <th>Flight</th> <th>Origin</th> <th>Destination</th> <th>Departure</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="arrival in arrivals.arrivals | orderBy:'-actualarrivaltime'">
+            <td valign='top'>
+              {{arrival.actualarrivaltime*1000 | date:'yyyy-MM-dd HH:mm:ss Z'}}
+            </td>
+            <td valign='top'>
+              {{arrival.ident}}<br/>
+              <small>{{arrival.origin}} &#8594; {{arrival.destination}}</small>
+            </td>
+            <td valign='top'>
+              {{arrival.originName}}<br/>
+              <small>{{arrival.originCity}}</small>
+            </td>
+            <td valign='top'>
+              {{arrival.destinationName}}<br/>
+              <small>{{arrival.destinationCity}}</small>
+            </td>
+            <td valign='top'>
+              {{arrival.actualdeparturetime*1000 | date:'yyyy-MM-dd HH:mm:ss Z'}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <script type="text/javascript">
